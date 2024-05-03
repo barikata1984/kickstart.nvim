@@ -17,7 +17,6 @@ return {
       search_workspace = false,
     }
     venv.retrieve_from_cache() -- for initiating auto detectioning a python imterpleter,
-    -- acutally weird because auto initiation is defined in autocommands
   end,
   keys = {
     -- Keymap to open VenvSelector to pick a venv.

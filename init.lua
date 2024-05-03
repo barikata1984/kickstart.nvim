@@ -106,7 +106,7 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require('lazy').setup 'plugins'
 
--- [[ Configure and install plugins ]]
+-- [[ Configure other auxiliaries ]]
 require 'options'
 require 'keymaps'
 require 'autocommands'
