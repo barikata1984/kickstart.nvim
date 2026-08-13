@@ -38,24 +38,30 @@ return {
     { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
   },
   lazy = false,
-  branch = 'regexp', -- This is the regexp branch, use this for the new version
+  -- branch = 'regexp', -- This is the regexp branch, use this for the new version
   config = function()
-    require('venv-selector').setup()
-    --{
-    --  ()
-    --end,
+    local opts = {}
 
-    --config = function()
-    --  local venv = require 'venv-selector'
-    --  venv.setup {
-    --      search = false,
-    --      anaconda_base_path = os.getenv 'CONDA_PREFIX',
-    --      anaconda_envs_path = os.getenv 'CONDA_PREFIX' .. '/envs',
-    --      auto_refresh = true,
-    --      search_workspace = false,
-    --    }
-    -- venv.retrieve_from_cache() -- for initiating auto detectioning a python imterpleter,
+    -- If using conda/anaconda, configure the paths
+    local conda_prefix = os.getenv 'CONDA_PREFIX'
+    if conda_prefix then
+      opts.anaconda_base_path = conda_prefix
+      opts.anaconda_envs_path = conda_prefix .. '/envs'
+    end
+
+    require('venv-selector').setup(opts)
   end,
+
+  --config = function()
+  --  local venv = require 'venv-selector'
+  --  venv.setup {
+  --      search = false,
+  --      anaconda_base_path = os.getenv 'CONDA_PREFIX',
+  --      anaconda_envs_path = os.getenv 'CONDA_PREFIX' .. '/envs',
+  --      auto_refresh = true,
+  --      search_workspace = false,
+  --    }
+  -- venv.retrieve_from_cache() -- for initiating auto detectioning a python imterpleter,
 
   keys = {
     { '<leader>,v', '<cmd>VenvSelect<cr>' },

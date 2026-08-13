@@ -94,6 +94,8 @@ vim.api.nvim_set_var('loaded_netrwPlugin', 1)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.python3_host_prog = vim.fn.expand '~/workspace/nvim-python/.venv/bin/python'
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
