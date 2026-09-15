@@ -113,6 +113,10 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require('lazy').setup 'plugins'
 
+if vim.g.vscode then
+  vim.opt.clipboard:append 'unnamedplus'
+end
+
 -- [[ Configure other auxiliaries ]]
 require 'options'
 require 'keymaps'
